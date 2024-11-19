@@ -1,11 +1,13 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <button class="btn btn-outline-light me-2" @click="toggleSidebar">
         <span class="material-icons">menu</span>
       </button>
-        <a class="navbar-brand" href="#">Admin Dashboard</a>
-        <button
+        <!-- <a class="navbar-brand" href="#">รายรับ - รายจ่าย</a> -->
+        <h5 class="navbar-brand w-100 text-center">รายรับ - รายจ่าย</h5>
+        <!-- <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
@@ -28,7 +30,7 @@
               <a class="nav-link" href="#">Pricing</a>
             </li>
           </ul>
-        </div>
+        </div> -->
       </div>
     </nav>
   </template>
