@@ -18,6 +18,14 @@ function doGet(e) {
     .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL)
     .setTitle('Vue3 GAS')
 }
+function test(){
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const sheet = ss.getSheetByName('Sheet1'); // เปลี่ยนชื่อชีทตามต้องการ
+    const data = sheet.getDataRange().getValues();
+    const jResponse = JSON.stringify(toObject(data));
+    //return ContentService.createTextOutput(jResponse).setMimeType(ContentService.MimeType.JSON  );
+    return jResponse; 
+}
 // function doGet(e) {
 //   var configs = config();
 //   // var params = e.parameter;
