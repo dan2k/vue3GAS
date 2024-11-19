@@ -43,9 +43,16 @@ function toObject(dt) {
   const objs = [];
   if (dt != null && dt.length > 0) {
     for (var i = 0; i < dt[0].length; i++) {
-      header.push(dt[0][i]);
+      header.push(dt[0][i]); 
     }
-    for (var i = 1; i < dt.length; i++) {
+
+
+
+
+
+
+
+    for (let i = 1; i < dt.length; i++) {
       var row = dt[i];
       var newObj = {};
       for (var j = 0; j < row.length; j++) {
