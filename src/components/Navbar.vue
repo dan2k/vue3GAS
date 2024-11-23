@@ -2,11 +2,11 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <button class="btn btn-outline-light me-2" @click="toggleSidebar">
+        <button class="btn btn-outline-light btn-sm me-2" @click="toggleSidebar">
         <span class="material-icons">menu</span>
       </button>
         <!-- <a class="navbar-brand" href="#">รายรับ - รายจ่าย</a> -->
-        <h5 class="navbar-brand w-100 text-center">รายรับ - รายจ่าย</h5>
+        <h5 class="navbar-brand w-50">รายรับ - รายจ่าย</h5>
         <!-- <button
           class="navbar-toggler"
           type="button"

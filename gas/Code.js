@@ -35,8 +35,6 @@ function readWorkSheet(sheetID, sheetName) {
 
   return datatable;
 }
-
-
 function toObject(dt) {
   //กำหนดให้แถวแรกเป็น header
   const header = [];
@@ -45,13 +43,6 @@ function toObject(dt) {
     for (var i = 0; i < dt[0].length; i++) {
       header.push(dt[0][i]); 
     }
-
-
-
-
-
-
-
     for (let i = 1; i < dt.length; i++) {
       var row = dt[i];
       var newObj = {};
@@ -62,4 +53,9 @@ function toObject(dt) {
     }
   }
   return objs;
+}
+function addUser(data){
+    const ss = SpreadsheetApp.openById(setting.sheetID);
+    const sheet = ss.getSheetByName(setting.links['students']);
+    sheet.appendRow([data.fname,data.lname]);
 }

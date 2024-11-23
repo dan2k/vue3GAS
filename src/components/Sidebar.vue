@@ -1,36 +1,21 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div
-    :class="['sidebar', { 'collapsed': !isVisible }]"
-    style="height: 100vh; background-color: #f8f9fa;"
+    :class="['sidebar', { collapsed: !isVisible }]"
+    style="height: 100vh; background-color: #f8f9fa"
   >
     <ul class="nav nav-pills flex-column mb-auto p-2">
-      <li class="nav-item">
-        <!-- <a href="#" class="nav-link d-flex align-items-center" :class="{'justify-content-center': !isVisible}">
-          <span class="material-icons">dashboard</span>
-          <span v-if="isVisible" class="ms-2">Dashboard</span>
-        </a> -->
-        <router-link to="/" class="nav-link d-flex align-items-center" :class="{'justify-content-center': !isVisible}">
-          <span class="material-icons">home</span>
-          <span v-if="isVisible" class="ms-2">Home</span>
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/" class="nav-link d-flex align-items-center" :class="{'justify-content-center': !isVisible}">
-          <span class="material-icons">shopping_cart</span>
-          <span v-if="isVisible" class="ms-2">Orders</span>
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/products" class="nav-link d-flex align-items-center" :class="{'justify-content-center': !isVisible}">
-          <span class="material-icons">inventory</span>
-          <span v-if="isVisible" class="ms-2">Products</span>
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/" class="nav-link d-flex align-items-center" :class="{'justify-content-center': !isVisible}">
-          <span class="material-icons">group</span>
-          <span v-if="isVisible" class="ms-2">Customers</span>
+      <li v-for="(route, index) in $router.options.routes" :key="index">
+        <router-link
+          :to="route.path"
+          class="nav-link d-flex align-items-center"
+          :class="{ 
+            'justify-content-center': !isVisible ,
+            'active': $route.fullPath==route.path,
+          }"
+        >
+          <span class="material-icons">{{route.iconname}}</span>
+          <span v-if="isVisible" class="ms-2">{{route.name}}</span>
         </router-link>
       </li>
     </ul>
@@ -53,7 +38,7 @@ defineProps({
 }
 
 .sidebar.collapsed {
-  width: 80px;
+  width: 65px;
 }
 
 .nav-link {
@@ -70,5 +55,19 @@ defineProps({
 
 .material-icons {
   font-size: 24px;
+}
+/* Media Query สำหรับหน้าจอเล็กกว่า 768px */
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    width: 250px;
+    left: 0px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .sidebar.collapsed {
+    width:0px;
+    left: -65px;
+  }
 }
 </style>
